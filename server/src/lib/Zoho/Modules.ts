@@ -12,7 +12,7 @@ class Module {
 
     constructor(apiName: string, permission: ModulePermission) {
         this.apiName = apiName;
-        this.scope = `module.${apiName.toLowerCase()}.${ModulePermission[permission]}`;
+        this.scope = `modules.${apiName.toLowerCase()}.${ModulePermission[permission]}`;
         if (!apiName) this.scope = `modules.${ModulePermission[ModulePermission.ALL]}`;
     }
 }
