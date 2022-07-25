@@ -1,10 +1,12 @@
 {
+    "extends": "@tsconfig/node14/tsconfig.json",
     "compilerOptions": {
       "module": "commonjs",
       "esModuleInterop": true,
+      "lib": ["DOM","ES2020"],
       "target": "es6",
       "moduleResolution": "node",
-      "sourceMap": true,
+      "sourceMap": false,
       "outDir": "./dist"
     },
     "watchOptions": {
@@ -18,10 +20,10 @@
         "synchronousWatchDirectory": true,
         // Finally, two additional settings for reducing the amount of possible
         // files to track  work from these directories
-        "excludeDirectories": ["**/node_modules", "_build"],
+        "excludeDirectories": ["**/node_modules", "dist"],
         
       },
     "include": ["src/**/*"],
     "exclude": ["node_modules"],
-    "lib": ["es2015"]
+    
 }
