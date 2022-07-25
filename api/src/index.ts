@@ -1,1 +1,2 @@
-console.log("log");
+import ENV from "./env";
+console.log(ENV);
