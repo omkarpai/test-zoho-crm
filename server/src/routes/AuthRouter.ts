@@ -1,7 +1,8 @@
 import express from "express";
-import { generateLoginLink } from "../controllers/AuthController";
+import { generateLoginLink, getAccessToken } from "../controllers/AuthController";
 const authRouter = express.Router();
 
 authRouter.get("/login", generateLoginLink);
+authRouter.get("/access-token", getAccessToken);
 
 export { authRouter };
