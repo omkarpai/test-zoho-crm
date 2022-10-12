@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import FormData from "form-data";
 import ENV from "../../env";
 import { Modules } from "./Modules";
@@ -17,6 +17,11 @@ interface GetAccessTokenResponse {
     api_domain: string;
     token_type: string;
     expires_in: number;
+}
+
+interface AccessDetails {
+    accessToken: string;
+    apiDomain: string;
 }
 
 const getScope = () => {
@@ -47,9 +52,27 @@ const getZohoAccessToken = async (ag: AccessGrant) => {
             data,
         });
         return res.data;
-    } catch (e) {
+    } catch (e: any) {
         console.log(e);
+        return e.toJSON();
     }
 };
+
+interface GetRecordsQueryParams {
+    fields: Array<String>;
+    cvid: number;
+    page: number;
+    per_page: number;
+    page_token: number;
+    sort_order: string;
+    sort_by: string;
+    converted: string;
+    territory_id: number;
+    include_child: boolean;
+}
+
+// Module APIs
+// Leads module
+const getRecords = async (ad: AccessDetails) => {};
 
 export { getLoginLink, getZohoAccessToken };
